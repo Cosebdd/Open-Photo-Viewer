@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OpenPhotoViewer.Core;
 using OpenPhotoViewer.UI.Controls.ImageBox;
 
 namespace OpenPhotoViewer.UI
@@ -29,8 +30,9 @@ namespace OpenPhotoViewer.UI
                 ImageBox.Text = string.Empty;
                 ImageBox.Image = image;
                 if (ImageBox.Width < image.Width || ImageBox.Height < image.Height)
-                    ImageBox.ZoomToFit();
-                //ImageBox.ZoomLevels = new ZoomLevelCollection(new[] { 100, 110 });
+                    ImageBox.SizeMode = ImageBoxSizeMode.Fit;
+                
+                ImageBox.ZoomLevels = ZoomLevelCollectionFactory.CreateZoomLevelCollection(ImageBox.Zoom);
             }
         }
     }

@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OpenPhotoViewer.Core\OpenPhotoViewer.Core.csproj">
+      <Project>{caba3e55-12ca-4fe3-b2fa-a94e75c2cb62}</Project>
+      <Name>OpenPhotoViewer.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenPhotoViewer.UI.Controls\OpenPhotoViewer.UI.Controls.csproj">
       <Project>{80BF734A-2424-4241-AD2E-3C6B455BA9FB}</Project>
       <Name>OpenPhotoViewer.UI.Controls</Name>

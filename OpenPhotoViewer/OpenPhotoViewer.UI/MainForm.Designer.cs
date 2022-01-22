@@ -37,11 +37,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ImageBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ImageBox.HorizontalScrollBarStyle = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxScrollBarStyle.Hide;
             this.ImageBox.Location = new System.Drawing.Point(12, 12);
             this.ImageBox.Name = "ImageBox";
             this.ImageBox.Size = new System.Drawing.Size(776, 374);
             this.ImageBox.TabIndex = 0;
             this.ImageBox.Text = "Loading...";
+            this.ImageBox.VerticalScrollBarStyle = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxScrollBarStyle.Hide;
             // 
             // MainForm
             // 

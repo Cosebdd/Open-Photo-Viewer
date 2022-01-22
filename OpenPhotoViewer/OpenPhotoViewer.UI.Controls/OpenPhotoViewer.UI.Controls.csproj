@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="ImageBox" />
+      <ProjectReference Include="..\OpenPhotoViewer.Core\OpenPhotoViewer.Core.csproj" />
     </ItemGroup>
 
 </Project>

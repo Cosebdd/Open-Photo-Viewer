@@ -10,23 +10,23 @@
   // If you use this control in your applications, attribution, donations or contributions are welcome.
 
   /// <summary>
-  /// Determines the sizing mode of an image hosted in an <see cref="ImageBox" /> control.
+  /// Specifies the style of a scroll bar
   /// </summary>
-  public enum ImageBoxSizeMode
+  public enum ImageBoxScrollBarStyle
   {
     /// <summary>
-    /// The image is disiplayed according to current zoom and scroll properties.
+    /// The scroll bar is automatically displayed when needed.
     /// </summary>
-    Normal,
+    Auto,
 
     /// <summary>
-    /// The image is stretched to fill the client area of the control.
+    /// The scroll bar is always shown
     /// </summary>
-    Stretch,
+    Show,
 
     /// <summary>
-    /// The image is stretched to fill as much of the client area of the control as possible, whilst retaining the same aspect ratio for the width and height.
+    /// The scroll bar is hidden
     /// </summary>
-    Fit
+    Hide
   }
 }
