@@ -42,10 +42,10 @@
             this.ImageBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ImageBox.GridDisplayMode = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxGridDisplayMode.None;
             this.ImageBox.HorizontalScrollBarStyle = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxScrollBarStyle.Hide;
-            this.ImageBox.Location = new System.Drawing.Point(12, 12);
+            this.ImageBox.Location = new System.Drawing.Point(0, 0);
             this.ImageBox.MaxFitZoom = 100;
             this.ImageBox.Name = "ImageBox";
-            this.ImageBox.Size = new System.Drawing.Size(776, 374);
+            this.ImageBox.Size = new System.Drawing.Size(800, 374);
             this.ImageBox.SizeMode = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxSizeMode.Fit;
             this.ImageBox.TabIndex = 0;
             this.ImageBox.Text = "Loading...";
