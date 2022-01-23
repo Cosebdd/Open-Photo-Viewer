@@ -7,7 +7,7 @@ namespace OpenPhotoViewer.UI
 {
     public partial class MainForm : Form
     {
-        private ImageLoader _loader;
+        private readonly ImageLoader _loader;
 
         public MainForm(string currentFilePath)
         {
@@ -45,6 +45,12 @@ namespace OpenPhotoViewer.UI
         private void Left_Click(object sender, EventArgs e)
         {
             LoadImage(() => _loader.PreviousImage());
+        }
+
+        private void GridSwitch_CheckedChanged(object sender, EventArgs e)
+        {
+            var gridIsDisplayed = ImageBox.GridDisplayMode == ImageBoxGridDisplayMode.Client;
+            ImageBox.GridDisplayMode = gridIsDisplayed ? ImageBoxGridDisplayMode.None : ImageBoxGridDisplayMode.Client;
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
