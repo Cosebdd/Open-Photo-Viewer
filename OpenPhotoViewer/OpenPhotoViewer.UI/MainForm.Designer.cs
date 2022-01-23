@@ -32,6 +32,7 @@
             this.LeftButton = new System.Windows.Forms.Button();
             this.RightButton = new System.Windows.Forms.Button();
             this.GridSwitch = new System.Windows.Forms.CheckBox();
+            this.FitToWindowButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ImageBox
@@ -45,11 +46,12 @@
             this.ImageBox.Location = new System.Drawing.Point(0, 0);
             this.ImageBox.MaxFitZoom = 100;
             this.ImageBox.Name = "ImageBox";
-            this.ImageBox.Size = new System.Drawing.Size(800, 374);
+            this.ImageBox.Size = new System.Drawing.Size(800, 386);
             this.ImageBox.SizeMode = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxSizeMode.Fit;
             this.ImageBox.TabIndex = 0;
             this.ImageBox.Text = "Loading...";
             this.ImageBox.VerticalScrollBarStyle = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxScrollBarStyle.Hide;
+            this.ImageBox.SizeModeChanged += new System.EventHandler(this.ImageBox_SizeModeChanged);
             this.ImageBox.Zoomed += new System.EventHandler<OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxZoomEventArgs>(this.ImageBox_Zoomed);
             this.ImageBox.SizeChanged += new System.EventHandler(this.ImageBox_SizeChanged);
             // 
@@ -82,7 +84,7 @@
             this.GridSwitch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.GridSwitch.Appearance = System.Windows.Forms.Appearance.Button;
             this.GridSwitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GridSwitch.Location = new System.Drawing.Point(245, 392);
+            this.GridSwitch.Location = new System.Drawing.Point(164, 392);
             this.GridSwitch.Name = "GridSwitch";
             this.GridSwitch.Size = new System.Drawing.Size(69, 54);
             this.GridSwitch.TabIndex = 3;
@@ -91,11 +93,24 @@
             this.GridSwitch.UseVisualStyleBackColor = true;
             this.GridSwitch.CheckedChanged += new System.EventHandler(this.GridSwitch_CheckedChanged);
             // 
+            // FitToWindowButton
+            // 
+            this.FitToWindowButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.FitToWindowButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FitToWindowButton.Location = new System.Drawing.Point(239, 392);
+            this.FitToWindowButton.Name = "FitToWindowButton";
+            this.FitToWindowButton.Size = new System.Drawing.Size(75, 54);
+            this.FitToWindowButton.TabIndex = 4;
+            this.FitToWindowButton.Text = "↙";
+            this.FitToWindowButton.UseVisualStyleBackColor = true;
+            this.FitToWindowButton.Click += new System.EventHandler(this.FitToWindow_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.FitToWindowButton);
             this.Controls.Add(this.GridSwitch);
             this.Controls.Add(this.RightButton);
             this.Controls.Add(this.LeftButton);
@@ -108,6 +123,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button FitToWindowButton;
 
         private System.Windows.Forms.CheckBox GridSwitch;
 

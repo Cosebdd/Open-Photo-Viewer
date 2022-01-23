@@ -27,6 +27,8 @@ namespace OpenPhotoViewer.UI
 
             ImageBox.ZoomLevels =
                 ZoomLevelCollectionFactory.CreateZoomLevelCollection(zoomToFit < 100 ? zoomToFit : 100);
+
+            CheckAndSetFitToWindowButtonEnabled(zoomToFit);
         }
 
         private void ImageBox_Zoomed(object sender, ImageBoxZoomEventArgs e)
@@ -35,6 +37,14 @@ namespace OpenPhotoViewer.UI
             {
                 ImageBox.SizeMode = ImageBoxSizeMode.Fit;
             }
+            
+            var zoomToFit = ImageBox.GetZoomToFit();
+            CheckAndSetFitToWindowButtonEnabled(zoomToFit);
+        }
+
+        private void ImageBox_SizeModeChanged(object sender, EventArgs e)
+        {
+            FitToWindowButton.Text = ImageBox.SizeMode == ImageBoxSizeMode.Fit ? "↙" : "↗";
         }
 
         private void Right_Click(object sender, EventArgs e)
@@ -51,6 +61,21 @@ namespace OpenPhotoViewer.UI
         {
             var gridIsDisplayed = ImageBox.GridDisplayMode == ImageBoxGridDisplayMode.Client;
             ImageBox.GridDisplayMode = gridIsDisplayed ? ImageBoxGridDisplayMode.None : ImageBoxGridDisplayMode.Client;
+        }
+
+        private void FitToWindow_Click(object sender, EventArgs e)
+        {
+            if (ImageBox.SizeMode == ImageBoxSizeMode.Fit)
+            {
+                ImageBox.ActualSize();
+            }
+            else
+            {
+                ImageBox.ZoomToFit();
+                ImageBox.SizeMode = ImageBoxSizeMode.Fit;
+            }
+            
+            RecenterScroll();
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
@@ -79,8 +104,27 @@ namespace OpenPhotoViewer.UI
 
             Text = $"{loadedImage.FileName} - Open Photo Viewer";
 
+            RecenterScroll();
+        }
+
+        private void RecenterScroll()
+        {
             var centerPoint = ImageBox.CenterPoint;
             ImageBox.ScrollTo(ImageBox.PointToImage(centerPoint), centerPoint);
+        }
+
+        private void CheckAndSetFitToWindowButtonEnabled(int zoomToFit)
+        {
+            if (zoomToFit > 100 && ImageBox.IsActualSize)
+            {
+                if (FitToWindowButton.Enabled)
+                    FitToWindowButton.Enabled = false;
+            }
+            else
+            {
+                if (!FitToWindowButton.Enabled)
+                    FitToWindowButton.Enabled = true;
+            }
         }
     }
 }
