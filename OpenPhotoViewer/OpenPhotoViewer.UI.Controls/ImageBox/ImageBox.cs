@@ -853,8 +853,18 @@ namespace OpenPhotoViewer.UI.Controls.ImageBox
                 }
             }
         }
-
+        
         /// <summary>
+        ///   Gets or sets a value for the maximum zoom level available when fitting the picture
+        /// </summary>
+        /// <value>
+        ///   -1 if not applicable
+        /// </value>
+        [Category("Behavior")]
+        [DefaultValue(-1)]
+        public virtual int MaxFitZoom { get; set; }
+
+            /// <summary>
         ///   Gets or sets a value indicating whether the user can change the zoom level.
         /// </summary>
         /// <value>
@@ -2873,37 +2883,50 @@ namespace OpenPhotoViewer.UI.Controls.ImageBox
         {
             if (!this.ViewSize.IsEmpty)
             {
-                Rectangle innerRectangle;
-                double zoom;
-                double aspectRatio;
-
-                innerRectangle = this.GetInsideViewPort(true);
-
-                if (this.ViewSize.Width > this.ViewSize.Height)
+                var zoomToFit = GetZoomToFit();
+                if (MaxFitZoom > 0)
                 {
-                    aspectRatio = (double)innerRectangle.Width / this.ViewSize.Width;
-                    zoom = aspectRatio * 100.0;
-
-                    if (innerRectangle.Height < this.ViewSize.Height * zoom / 100.0)
-                    {
-                        aspectRatio = (double)innerRectangle.Height / this.ViewSize.Height;
-                        zoom = aspectRatio * 100.0;
-                    }
+                    this.Zoom = zoomToFit > MaxFitZoom ? MaxFitZoom : zoomToFit;
                 }
                 else
                 {
+                    this.Zoom = zoomToFit;
+                }
+            }
+        }
+
+        public int GetZoomToFit()
+        {
+            Rectangle innerRectangle;
+            double zoom;
+            double aspectRatio;
+
+            innerRectangle = this.GetInsideViewPort(true);
+
+            if (this.ViewSize.Width > this.ViewSize.Height)
+            {
+                aspectRatio = (double)innerRectangle.Width / this.ViewSize.Width;
+                zoom = aspectRatio * 100.0;
+
+                if (innerRectangle.Height < this.ViewSize.Height * zoom / 100.0)
+                {
                     aspectRatio = (double)innerRectangle.Height / this.ViewSize.Height;
                     zoom = aspectRatio * 100.0;
-
-                    if (innerRectangle.Width < this.ViewSize.Width * zoom / 100.0)
-                    {
-                        aspectRatio = (double)innerRectangle.Width / this.ViewSize.Width;
-                        zoom = aspectRatio * 100.0;
-                    }
                 }
-
-                this.Zoom = (int)Math.Round(Math.Floor(zoom));
             }
+            else
+            {
+                aspectRatio = (double)innerRectangle.Height / this.ViewSize.Height;
+                zoom = aspectRatio * 100.0;
+
+                if (innerRectangle.Width < this.ViewSize.Width * zoom / 100.0)
+                {
+                    aspectRatio = (double)innerRectangle.Width / this.ViewSize.Width;
+                    zoom = aspectRatio * 100.0;
+                }
+            }
+
+            return (int)Math.Round(Math.Floor(zoom));;
         }
 
         /// <summary>
@@ -4182,11 +4205,11 @@ namespace OpenPhotoViewer.UI.Controls.ImageBox
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
-            
-            if (!this.AllowZoom) return;
 
-            if (SizeMode != ImageBoxSizeMode.Normal)
-                SizeMode = ImageBoxSizeMode.Normal;
+            var isZoomIn = e.Delta > 0;
+            if (!this.AllowZoom || (SizeMode == ImageBoxSizeMode.Fit && !isZoomIn)) return;
+
+            RestoreSizeMode();
 
             // The MouseWheel event can contain multiple "spins" of the wheel so we need to adjust accordingly
             var spins = Math.Abs(e.Delta / SystemInformation.MouseWheelScrollDelta);
@@ -4194,7 +4217,7 @@ namespace OpenPhotoViewer.UI.Controls.ImageBox
             // TODO: Really should update the source method to handle multiple increments rather than calling it multiple times
             for (var i = 0; i < spins; i++)
             {
-                this.ProcessMouseZoom(e.Delta > 0, e.Location);
+                this.ProcessMouseZoom(isZoomIn, e.Location);
             }
         }
 

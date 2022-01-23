@@ -14,11 +14,13 @@ namespace OpenPhotoViewer.UI
 {
     public partial class MainForm : Form
     {
+        private bool _fitToWindow;
         private string _currentFilePath;
-        
+
         public MainForm(string currentFilePath)
         {
             _currentFilePath = currentFilePath;
+            _fitToWindow = true;
             InitializeComponent();
         }
 
@@ -29,10 +31,30 @@ namespace OpenPhotoViewer.UI
                 var image = Image.FromFile(_currentFilePath);
                 ImageBox.Text = string.Empty;
                 ImageBox.Image = image;
-                if (ImageBox.Width < image.Width || ImageBox.Height < image.Height)
-                    ImageBox.SizeMode = ImageBoxSizeMode.Fit;
-                
+
                 ImageBox.ZoomLevels = ZoomLevelCollectionFactory.CreateZoomLevelCollection(ImageBox.Zoom);
+            }
+        }
+
+        private void ImageBox_SizeChanged(object sender, EventArgs e)
+        {
+            var zoomToFit = ImageBox.GetZoomToFit();
+
+            if (zoomToFit < 100)
+            {
+                ImageBox.ZoomLevels = ZoomLevelCollectionFactory.CreateZoomLevelCollection(zoomToFit);
+            }
+            else
+            {
+                ImageBox.ZoomLevels = ZoomLevelCollectionFactory.CreateZoomLevelCollection(100);
+            }
+        }
+
+        private void ImageBox_Zoomed(object sender, ImageBoxZoomEventArgs e)
+        {
+            if (e.NewZoom == ImageBox.ZoomLevels[0])
+            {
+                ImageBox.SizeMode = ImageBoxSizeMode.Fit;
             }
         }
     }

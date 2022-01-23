@@ -39,11 +39,15 @@
             this.ImageBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ImageBox.HorizontalScrollBarStyle = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxScrollBarStyle.Hide;
             this.ImageBox.Location = new System.Drawing.Point(12, 12);
+            this.ImageBox.MaxFitZoom = 100;
             this.ImageBox.Name = "ImageBox";
             this.ImageBox.Size = new System.Drawing.Size(776, 374);
+            this.ImageBox.SizeMode = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxSizeMode.Fit;
             this.ImageBox.TabIndex = 0;
             this.ImageBox.Text = "Loading...";
             this.ImageBox.VerticalScrollBarStyle = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxScrollBarStyle.Hide;
+            this.ImageBox.Zoomed += new System.EventHandler<OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxZoomEventArgs>(this.ImageBox_Zoomed);
+            this.ImageBox.SizeChanged += new System.EventHandler(this.ImageBox_SizeChanged);
             // 
             // MainForm
             // 
