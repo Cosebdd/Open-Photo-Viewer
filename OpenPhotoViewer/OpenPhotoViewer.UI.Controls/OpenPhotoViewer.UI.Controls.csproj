@@ -9,4 +9,9 @@
       <ProjectReference Include="..\OpenPhotoViewer.Core\OpenPhotoViewer.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="GradientPanel\GrayGradientPanel.cs">
+        <SubType>Component</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>

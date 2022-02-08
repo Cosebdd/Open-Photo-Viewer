@@ -1,4 +1,6 @@
-﻿namespace OpenPhotoViewer.UI
+﻿using OpenPhotoViewer.UI.Controls.GradientPanel;
+
+namespace OpenPhotoViewer.UI
 {
     partial class MainForm
     {
@@ -28,32 +30,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ImageBox = new OpenPhotoViewer.UI.Controls.ImageBox.ImageBox();
             this.LeftButton = new System.Windows.Forms.Button();
             this.RightButton = new System.Windows.Forms.Button();
             this.GridSwitch = new System.Windows.Forms.CheckBox();
             this.FitToWindowButton = new System.Windows.Forms.Button();
+            this.ImageBox = new OpenPhotoViewer.UI.Controls.ImageBox.ImageBox();
+            this._bottomGrayGradient = new GrayGradientPanel();
             this.SuspendLayout();
-            // 
-            // ImageBox
-            // 
-            this.ImageBox.AllowUnfocusedMouseWheel = true;
-            this.ImageBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.ImageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(241)))), ((int)(((byte)(249)))));
-            this.ImageBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ImageBox.GridDisplayMode = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxGridDisplayMode.None;
-            this.ImageBox.HorizontalScrollBarStyle = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxScrollBarStyle.Hide;
-            this.ImageBox.Location = new System.Drawing.Point(0, 0);
-            this.ImageBox.MaxFitZoom = 100;
-            this.ImageBox.Name = "ImageBox";
-            this.ImageBox.Size = new System.Drawing.Size(800, 386);
-            this.ImageBox.SizeMode = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxSizeMode.Fit;
-            this.ImageBox.TabIndex = 0;
-            this.ImageBox.Text = "Loading...";
-            this.ImageBox.VerticalScrollBarStyle = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxScrollBarStyle.Hide;
-            this.ImageBox.SizeModeChanged += new System.EventHandler(this.ImageBox_SizeModeChanged);
-            this.ImageBox.Zoomed += new System.EventHandler<OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxZoomEventArgs>(this.ImageBox_Zoomed);
-            this.ImageBox.SizeChanged += new System.EventHandler(this.ImageBox_SizeChanged);
             // 
             // LeftButton
             // 
@@ -105,6 +88,36 @@
             this.FitToWindowButton.UseVisualStyleBackColor = true;
             this.FitToWindowButton.Click += new System.EventHandler(this.FitToWindow_Click);
             // 
+            // ImageBox
+            // 
+            this.ImageBox.AllowUnfocusedMouseWheel = true;
+            this.ImageBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.ImageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(241)))), ((int)(((byte)(249)))));
+            this.ImageBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ImageBox.GridDisplayMode = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxGridDisplayMode.None;
+            this.ImageBox.HorizontalScrollBarStyle = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxScrollBarStyle.Hide;
+            this.ImageBox.Location = new System.Drawing.Point(0, 0);
+            this.ImageBox.MaxFitZoom = 100;
+            this.ImageBox.Name = "ImageBox";
+            this.ImageBox.Size = new System.Drawing.Size(800, 386);
+            this.ImageBox.SizeMode = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxSizeMode.Fit;
+            this.ImageBox.TabIndex = 0;
+            this.ImageBox.Text = "Loading...";
+            this.ImageBox.VerticalScrollBarStyle = OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxScrollBarStyle.Hide;
+            this.ImageBox.SizeModeChanged += new System.EventHandler(this.ImageBox_SizeModeChanged);
+            this.ImageBox.Zoomed += new System.EventHandler<OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxZoomEventArgs>(this.ImageBox_Zoomed);
+            this.ImageBox.SizeChanged += new System.EventHandler(this.ImageBox_SizeChanged);
+            // 
+            // _bottomGrayGradient
+            // 
+            this._bottomGrayGradient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this._bottomGrayGradient.Angle = 270;
+            this._bottomGrayGradient.AngleScales = false;
+            this._bottomGrayGradient.Location = new System.Drawing.Point(0, 365);
+            this._bottomGrayGradient.Name = "_bottomGrayGradient";
+            this._bottomGrayGradient.Size = new System.Drawing.Size(800, 92);
+            this._bottomGrayGradient.TabIndex = 5;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -115,6 +128,7 @@
             this.Controls.Add(this.RightButton);
             this.Controls.Add(this.LeftButton);
             this.Controls.Add(this.ImageBox);
+            this.Controls.Add(this._bottomGrayGradient);
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(424, 370);
             this.Name = "MainForm";
@@ -133,6 +147,7 @@
         private OpenPhotoViewer.UI.Controls.ImageBox.ImageBox ImageBox;
         private System.Windows.Forms.Button LeftButton;
         private System.Windows.Forms.Button RightButton;
+        private GrayGradientPanel _bottomGrayGradient;
     }
 }
 
