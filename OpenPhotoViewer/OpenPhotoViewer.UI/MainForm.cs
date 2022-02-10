@@ -37,14 +37,24 @@ namespace OpenPhotoViewer.UI
             {
                 ImageBox.SizeMode = ImageBoxSizeMode.Fit;
             }
-            
+
             var zoomToFit = ImageBox.GetZoomToFit();
             CheckAndSetFitToWindowButtonEnabled(zoomToFit);
         }
 
         private void ImageBox_SizeModeChanged(object sender, EventArgs e)
         {
-            FitToWindowButton.Text = ImageBox.SizeMode == ImageBoxSizeMode.Fit ? "↙" : "↗";
+            //FitToWindowButton.Text = ImageBox.SizeMode == ImageBoxSizeMode.Fit ? "↙" : "↗";
+            if (ImageBox.SizeMode == ImageBoxSizeMode.Fit && !ImageBox.IsActualSize)
+            {
+                FitToWindowButton.Visible = false;
+                ActualSizeButton.Visible = true;
+            }
+            else
+            {
+                FitToWindowButton.Visible = true;
+                ActualSizeButton.Visible = false;
+            }
         }
 
         private void Right_Click(object sender, EventArgs e)
@@ -65,16 +75,16 @@ namespace OpenPhotoViewer.UI
 
         private void FitToWindow_Click(object sender, EventArgs e)
         {
-            if (ImageBox.SizeMode == ImageBoxSizeMode.Fit)
-            {
-                ImageBox.ActualSize();
-            }
-            else
-            {
-                ImageBox.ZoomToFit();
-                ImageBox.SizeMode = ImageBoxSizeMode.Fit;
-            }
-            
+            ImageBox.ZoomToFit();
+            ImageBox.SizeMode = ImageBoxSizeMode.Fit;
+
+            RecenterScroll();
+        }
+
+        private void ActualSizeButton_Click(object sender, EventArgs e)
+        {
+            ImageBox.ActualSize();
+
             RecenterScroll();
         }
 
@@ -97,9 +107,9 @@ namespace OpenPhotoViewer.UI
         {
             var loadedImage = loadFunc();
             ImageBox.Image = loadedImage.Image;
-            
+
             ImageBox.SizeMode = ImageBoxSizeMode.Fit;
-            
+
             ImageBox.ZoomLevels = ZoomLevelCollectionFactory.CreateZoomLevelCollection(ImageBox.Zoom);
 
             Text = $"{loadedImage.FileName} - Open Photo Viewer";
@@ -115,15 +125,24 @@ namespace OpenPhotoViewer.UI
 
         private void CheckAndSetFitToWindowButtonEnabled(int zoomToFit)
         {
-            if (zoomToFit > 100 && ImageBox.IsActualSize)
+            if (zoomToFit > 100 && ImageBox.IsActualSize)// zoomToFit > 100 means the whole image of actual size is visible
             {
                 if (FitToWindowButton.Enabled)
                     FitToWindowButton.Enabled = false;
+                ActualSizeButton.Visible = false;
+                FitToWindowButton.Visible = true;
             }
             else
             {
                 if (!FitToWindowButton.Enabled)
                     FitToWindowButton.Enabled = true;
+
+                if (ImageBox.SizeMode == ImageBoxSizeMode.Fit && !ImageBox.IsActualSize)
+                {
+                    FitToWindowButton.Visible = false;
+                    ActualSizeButton.Visible = true;
+                }
+                    
             }
         }
     }

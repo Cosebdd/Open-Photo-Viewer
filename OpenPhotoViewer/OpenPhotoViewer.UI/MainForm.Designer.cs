@@ -33,7 +33,7 @@ namespace OpenPhotoViewer.UI
             this.LeftButton = new OpenPhotoViewer.UI.Controls.CustomButton();
             this.RightButton = new OpenPhotoViewer.UI.Controls.CustomButton();
             this.GridSwitch = new OpenPhotoViewer.UI.Controls.CustomButtonSwitch();
-            this.FitToWindowButton = new OpenPhotoViewer.UI.Controls.CustomButton();
+            this.FitToWindowButton = new OpenPhotoViewer.UI.Controls.CustomDisableButton();
             this.ImageBox = new OpenPhotoViewer.UI.Controls.ImageBox.ImageBox();
             this._bottomGrayGradient = new OpenPhotoViewer.UI.Controls.GradientPanel.GrayGradientPanel();
             this.ActualSizeButton = new OpenPhotoViewer.UI.Controls.CustomButton();
@@ -94,7 +94,7 @@ namespace OpenPhotoViewer.UI
             this.GridSwitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GridSwitch.HoverImage = global::OpenPhotoViewer.UI.Properties.Resources.CheckersHover;
             this.GridSwitch.Image = global::OpenPhotoViewer.UI.Properties.Resources.Checkers;
-            this.GridSwitch.Location = new System.Drawing.Point(164, 21);
+            this.GridSwitch.Location = new System.Drawing.Point(482, 21);
             this.GridSwitch.MainImage = global::OpenPhotoViewer.UI.Properties.Resources.Checkers;
             this.GridSwitch.Name = "GridSwitch";
             this.GridSwitch.Size = new System.Drawing.Size(69, 64);
@@ -108,6 +108,7 @@ namespace OpenPhotoViewer.UI
             this.FitToWindowButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.FitToWindowButton.BackColor = System.Drawing.Color.Transparent;
             this.FitToWindowButton.ClickImage = global::OpenPhotoViewer.UI.Properties.Resources.Fit;
+            this.FitToWindowButton.DisabledImage = global::OpenPhotoViewer.UI.Properties.Resources.FitDisabled;
             this.FitToWindowButton.FlatAppearance.BorderSize = 0;
             this.FitToWindowButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.FitToWindowButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -115,7 +116,7 @@ namespace OpenPhotoViewer.UI
             this.FitToWindowButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FitToWindowButton.HoverImage = global::OpenPhotoViewer.UI.Properties.Resources.FitHover;
             this.FitToWindowButton.Image = global::OpenPhotoViewer.UI.Properties.Resources.Fit;
-            this.FitToWindowButton.Location = new System.Drawing.Point(35, 21);
+            this.FitToWindowButton.Location = new System.Drawing.Point(239, 21);
             this.FitToWindowButton.MainImage = global::OpenPhotoViewer.UI.Properties.Resources.Fit;
             this.FitToWindowButton.Name = "FitToWindowButton";
             this.FitToWindowButton.Size = new System.Drawing.Size(75, 64);
@@ -176,7 +177,7 @@ namespace OpenPhotoViewer.UI
             this.ActualSizeButton.Size = new System.Drawing.Size(75, 64);
             this.ActualSizeButton.TabIndex = 1;
             this.ActualSizeButton.UseVisualStyleBackColor = false;
-            this.ActualSizeButton.Click += new System.EventHandler(this.Left_Click);
+            this.ActualSizeButton.Click += new System.EventHandler(this.ActualSizeButton_Click);
             // 
             // MainForm
             // 
@@ -197,7 +198,7 @@ namespace OpenPhotoViewer.UI
 
         private OpenPhotoViewer.UI.Controls.CustomButton ActualSizeButton;
 
-        private OpenPhotoViewer.UI.Controls.CustomButton FitToWindowButton;
+        private OpenPhotoViewer.UI.Controls.CustomDisableButton FitToWindowButton;
 
         private OpenPhotoViewer.UI.Controls.CustomButtonSwitch GridSwitch;
 

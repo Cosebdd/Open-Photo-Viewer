@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -97,6 +98,7 @@
     <Content Include="Resources\Checkers.png" />
     <Content Include="Resources\CheckersHover.png" />
     <Content Include="Resources\Fit.png" />
+    <None Include="Resources\FitDisabled.png" />
     <Content Include="Resources\FitHover.png" />
     <Content Include="Resources\Left.png" />
     <Content Include="Resources\LeftHover.png" />

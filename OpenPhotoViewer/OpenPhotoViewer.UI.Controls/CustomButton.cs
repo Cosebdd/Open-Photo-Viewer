@@ -11,7 +11,7 @@ namespace OpenPhotoViewer.UI.Controls
         private Image _hoverImage = new Bitmap(1,1);
         private Image _clickImage = new Bitmap(1,1);
         
-        private void Set<T>(ref T field, T value)
+        protected void Set<T>(ref T field, T value)
         {
             if (field.Equals(value))
                 return;
