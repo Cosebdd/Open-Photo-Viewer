@@ -100,7 +100,15 @@ namespace OpenPhotoViewer.UI
                 case Keys.D:
                     Right_Click(sender, e);
                     break;
+                case Keys.C when e.Modifiers == Keys.Control:
+                    CopyActiveImageToClipboard();
+                    break;
             }
+        }
+
+        private void CopyActiveImageToClipboard()
+        {
+            Clipboard.SetImage(ImageBox.Image);
         }
 
         private void LoadImage(Func<LoadedImage> loadFunc)
