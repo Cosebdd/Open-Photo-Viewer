@@ -89,5 +89,19 @@
       <Name>OpenPhotoViewer.UI.Controls</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ActualSizeHover.png" />
+    <Content Include="Resources\ActualSize.png" />
+    <Content Include="Resources\CenterButton.png" />
+    <Content Include="Resources\CenterButtonHover.png" />
+    <Content Include="Resources\Checkers.png" />
+    <Content Include="Resources\CheckersHover.png" />
+    <Content Include="Resources\Fit.png" />
+    <Content Include="Resources\FitHover.png" />
+    <Content Include="Resources\Left.png" />
+    <Content Include="Resources\LeftHover.png" />
+    <Content Include="Resources\Right.png" />
+    <Content Include="Resources\RightHover.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

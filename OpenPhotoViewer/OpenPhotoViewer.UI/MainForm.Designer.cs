@@ -30,62 +30,97 @@ namespace OpenPhotoViewer.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.LeftButton = new System.Windows.Forms.Button();
-            this.RightButton = new System.Windows.Forms.Button();
-            this.GridSwitch = new System.Windows.Forms.CheckBox();
-            this.FitToWindowButton = new System.Windows.Forms.Button();
+            this.LeftButton = new OpenPhotoViewer.UI.Controls.CustomButton();
+            this.RightButton = new OpenPhotoViewer.UI.Controls.CustomButton();
+            this.GridSwitch = new OpenPhotoViewer.UI.Controls.CustomButtonSwitch();
+            this.FitToWindowButton = new OpenPhotoViewer.UI.Controls.CustomButton();
             this.ImageBox = new OpenPhotoViewer.UI.Controls.ImageBox.ImageBox();
-            this._bottomGrayGradient = new GrayGradientPanel();
+            this._bottomGrayGradient = new OpenPhotoViewer.UI.Controls.GradientPanel.GrayGradientPanel();
+            this.ActualSizeButton = new OpenPhotoViewer.UI.Controls.CustomButton();
+            this._bottomGrayGradient.SuspendLayout();
             this.SuspendLayout();
             // 
             // LeftButton
             // 
             this.LeftButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.LeftButton.BackColor = System.Drawing.Color.Transparent;
+            this.LeftButton.ClickImage = global::OpenPhotoViewer.UI.Properties.Resources.Left;
+            this.LeftButton.FlatAppearance.BorderSize = 0;
+            this.LeftButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.LeftButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.LeftButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LeftButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LeftButton.Location = new System.Drawing.Point(320, 392);
+            this.LeftButton.HoverImage = global::OpenPhotoViewer.UI.Properties.Resources.LeftHover;
+            this.LeftButton.Image = global::OpenPhotoViewer.UI.Properties.Resources.Left;
+            this.LeftButton.Location = new System.Drawing.Point(320, 21);
+            this.LeftButton.MainImage = global::OpenPhotoViewer.UI.Properties.Resources.Left;
             this.LeftButton.Name = "LeftButton";
-            this.LeftButton.Size = new System.Drawing.Size(75, 54);
+            this.LeftButton.Size = new System.Drawing.Size(75, 64);
             this.LeftButton.TabIndex = 1;
-            this.LeftButton.Text = "◀";
-            this.LeftButton.UseVisualStyleBackColor = true;
+            this.LeftButton.UseVisualStyleBackColor = false;
             this.LeftButton.Click += new System.EventHandler(this.Left_Click);
             // 
             // RightButton
             // 
             this.RightButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.RightButton.BackColor = System.Drawing.Color.Transparent;
+            this.RightButton.ClickImage = global::OpenPhotoViewer.UI.Properties.Resources.Right;
+            this.RightButton.FlatAppearance.BorderSize = 0;
+            this.RightButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.RightButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.RightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RightButton.Location = new System.Drawing.Point(401, 392);
+            this.RightButton.HoverImage = global::OpenPhotoViewer.UI.Properties.Resources.RightHover;
+            this.RightButton.Image = global::OpenPhotoViewer.UI.Properties.Resources.Right;
+            this.RightButton.Location = new System.Drawing.Point(401, 21);
+            this.RightButton.MainImage = global::OpenPhotoViewer.UI.Properties.Resources.Right;
             this.RightButton.Name = "RightButton";
-            this.RightButton.Size = new System.Drawing.Size(75, 54);
+            this.RightButton.Size = new System.Drawing.Size(75, 64);
             this.RightButton.TabIndex = 2;
-            this.RightButton.Text = "▶";
-            this.RightButton.UseVisualStyleBackColor = true;
+            this.RightButton.UseVisualStyleBackColor = false;
             this.RightButton.Click += new System.EventHandler(this.Right_Click);
             // 
             // GridSwitch
             // 
             this.GridSwitch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.GridSwitch.Appearance = System.Windows.Forms.Appearance.Button;
+            this.GridSwitch.BackColor = System.Drawing.Color.Transparent;
+            this.GridSwitch.ClickImage = global::OpenPhotoViewer.UI.Properties.Resources.Checkers;
+            this.GridSwitch.FlatAppearance.BorderSize = 0;
+            this.GridSwitch.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.GridSwitch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.GridSwitch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.GridSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GridSwitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GridSwitch.Location = new System.Drawing.Point(164, 392);
+            this.GridSwitch.HoverImage = global::OpenPhotoViewer.UI.Properties.Resources.CheckersHover;
+            this.GridSwitch.Image = global::OpenPhotoViewer.UI.Properties.Resources.Checkers;
+            this.GridSwitch.Location = new System.Drawing.Point(164, 21);
+            this.GridSwitch.MainImage = global::OpenPhotoViewer.UI.Properties.Resources.Checkers;
             this.GridSwitch.Name = "GridSwitch";
-            this.GridSwitch.Size = new System.Drawing.Size(69, 54);
+            this.GridSwitch.Size = new System.Drawing.Size(69, 64);
             this.GridSwitch.TabIndex = 3;
-            this.GridSwitch.Text = "▞";
             this.GridSwitch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.GridSwitch.UseVisualStyleBackColor = true;
+            this.GridSwitch.UseVisualStyleBackColor = false;
             this.GridSwitch.CheckedChanged += new System.EventHandler(this.GridSwitch_CheckedChanged);
             // 
             // FitToWindowButton
             // 
             this.FitToWindowButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.FitToWindowButton.BackColor = System.Drawing.Color.Transparent;
+            this.FitToWindowButton.ClickImage = global::OpenPhotoViewer.UI.Properties.Resources.Fit;
+            this.FitToWindowButton.FlatAppearance.BorderSize = 0;
+            this.FitToWindowButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.FitToWindowButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.FitToWindowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FitToWindowButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FitToWindowButton.Location = new System.Drawing.Point(239, 392);
+            this.FitToWindowButton.HoverImage = global::OpenPhotoViewer.UI.Properties.Resources.FitHover;
+            this.FitToWindowButton.Image = global::OpenPhotoViewer.UI.Properties.Resources.Fit;
+            this.FitToWindowButton.Location = new System.Drawing.Point(35, 21);
+            this.FitToWindowButton.MainImage = global::OpenPhotoViewer.UI.Properties.Resources.Fit;
             this.FitToWindowButton.Name = "FitToWindowButton";
-            this.FitToWindowButton.Size = new System.Drawing.Size(75, 54);
+            this.FitToWindowButton.Size = new System.Drawing.Size(75, 64);
             this.FitToWindowButton.TabIndex = 4;
-            this.FitToWindowButton.Text = "↙";
-            this.FitToWindowButton.UseVisualStyleBackColor = true;
+            this.FitToWindowButton.UseVisualStyleBackColor = false;
             this.FitToWindowButton.Click += new System.EventHandler(this.FitToWindow_Click);
             // 
             // ImageBox
@@ -113,20 +148,41 @@ namespace OpenPhotoViewer.UI
             this._bottomGrayGradient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this._bottomGrayGradient.Angle = 270;
             this._bottomGrayGradient.AngleScales = false;
+            this._bottomGrayGradient.Controls.Add(this.FitToWindowButton);
+            this._bottomGrayGradient.Controls.Add(this.RightButton);
+            this._bottomGrayGradient.Controls.Add(this.GridSwitch);
+            this._bottomGrayGradient.Controls.Add(this.ActualSizeButton);
+            this._bottomGrayGradient.Controls.Add(this.LeftButton);
             this._bottomGrayGradient.Location = new System.Drawing.Point(0, 365);
             this._bottomGrayGradient.Name = "_bottomGrayGradient";
             this._bottomGrayGradient.Size = new System.Drawing.Size(800, 92);
             this._bottomGrayGradient.TabIndex = 5;
+            // 
+            // ActualSizeButton
+            // 
+            this.ActualSizeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ActualSizeButton.BackColor = System.Drawing.Color.Transparent;
+            this.ActualSizeButton.ClickImage = global::OpenPhotoViewer.UI.Properties.Resources.ActualSize;
+            this.ActualSizeButton.FlatAppearance.BorderSize = 0;
+            this.ActualSizeButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ActualSizeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ActualSizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ActualSizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActualSizeButton.HoverImage = global::OpenPhotoViewer.UI.Properties.Resources.ActualSizeHover;
+            this.ActualSizeButton.Image = global::OpenPhotoViewer.UI.Properties.Resources.ActualSize;
+            this.ActualSizeButton.Location = new System.Drawing.Point(239, 21);
+            this.ActualSizeButton.MainImage = global::OpenPhotoViewer.UI.Properties.Resources.ActualSize;
+            this.ActualSizeButton.Name = "ActualSizeButton";
+            this.ActualSizeButton.Size = new System.Drawing.Size(75, 64);
+            this.ActualSizeButton.TabIndex = 1;
+            this.ActualSizeButton.UseVisualStyleBackColor = false;
+            this.ActualSizeButton.Click += new System.EventHandler(this.Left_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.FitToWindowButton);
-            this.Controls.Add(this.GridSwitch);
-            this.Controls.Add(this.RightButton);
-            this.Controls.Add(this.LeftButton);
             this.Controls.Add(this.ImageBox);
             this.Controls.Add(this._bottomGrayGradient);
             this.KeyPreview = true;
@@ -135,19 +191,22 @@ namespace OpenPhotoViewer.UI
             this.Text = "Open Photo Viewer";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+            this._bottomGrayGradient.ResumeLayout(false);
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Button FitToWindowButton;
+        private OpenPhotoViewer.UI.Controls.CustomButton ActualSizeButton;
 
-        private System.Windows.Forms.CheckBox GridSwitch;
+        private OpenPhotoViewer.UI.Controls.CustomButton FitToWindowButton;
+
+        private OpenPhotoViewer.UI.Controls.CustomButtonSwitch GridSwitch;
 
         #endregion
 
         private OpenPhotoViewer.UI.Controls.ImageBox.ImageBox ImageBox;
-        private System.Windows.Forms.Button LeftButton;
-        private System.Windows.Forms.Button RightButton;
-        private GrayGradientPanel _bottomGrayGradient;
+        private OpenPhotoViewer.UI.Controls.CustomButton LeftButton;
+        private OpenPhotoViewer.UI.Controls.CustomButton RightButton;
+        private OpenPhotoViewer.UI.Controls.GradientPanel.GrayGradientPanel _bottomGrayGradient;
     }
 }
 
