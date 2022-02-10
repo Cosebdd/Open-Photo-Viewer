@@ -3,14 +3,14 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace OpenPhotoViewer.UI.Controls.GradientPanel
+namespace OpenPhotoViewer.UI.Controls
 {
     public sealed class GrayGradientPanel : Panel
     {
         private bool _angleScales = false;
         private int _angle = 0;
 
-        private readonly Color[] _colors = new Color[]
+        private readonly Color[] _colors =
         {
             ColorTranslator.FromHtml("#3F3F3F"),
             ColorTranslator.FromHtml("#5D5D5D"),
@@ -18,7 +18,7 @@ namespace OpenPhotoViewer.UI.Controls.GradientPanel
             ColorTranslator.FromHtml("#7D7D7D")
         };
 
-        private readonly float[] _positions = new float[]
+        private readonly float[] _positions =
         {
             0f,
             0.1f,

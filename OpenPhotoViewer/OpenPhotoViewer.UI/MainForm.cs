@@ -145,5 +145,10 @@ namespace OpenPhotoViewer.UI
                     
             }
         }
+
+        private void MainForm_Move(object sender, EventArgs e)
+        {
+            GrayGradientPanel.Refresh(); //Prevents weird artifacts when the gradient is moved out of the screen
+        }
     }
 }

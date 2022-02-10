@@ -10,7 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="GradientPanel\GrayGradientPanel.cs">
+      <Compile Update="GrayGradientPanel.cs">
         <SubType>Component</SubType>
       </Compile>
     </ItemGroup>

@@ -1,4 +1,4 @@
-﻿using OpenPhotoViewer.UI.Controls.GradientPanel;
+﻿using OpenPhotoViewer.UI.Controls;
 
 namespace OpenPhotoViewer.UI
 {
@@ -35,9 +35,9 @@ namespace OpenPhotoViewer.UI
             this.GridSwitch = new OpenPhotoViewer.UI.Controls.CustomButtonSwitch();
             this.FitToWindowButton = new OpenPhotoViewer.UI.Controls.CustomDisableButton();
             this.ImageBox = new OpenPhotoViewer.UI.Controls.ImageBox.ImageBox();
-            this._bottomGrayGradient = new OpenPhotoViewer.UI.Controls.GradientPanel.GrayGradientPanel();
+            this.GrayGradientPanel = new OpenPhotoViewer.UI.Controls.GrayGradientPanel();
             this.ActualSizeButton = new OpenPhotoViewer.UI.Controls.CustomButton();
-            this._bottomGrayGradient.SuspendLayout();
+            this.GrayGradientPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // LeftButton
@@ -144,20 +144,20 @@ namespace OpenPhotoViewer.UI
             this.ImageBox.Zoomed += new System.EventHandler<OpenPhotoViewer.UI.Controls.ImageBox.ImageBoxZoomEventArgs>(this.ImageBox_Zoomed);
             this.ImageBox.SizeChanged += new System.EventHandler(this.ImageBox_SizeChanged);
             // 
-            // _bottomGrayGradient
+            // GrayGradientPanel
             // 
-            this._bottomGrayGradient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this._bottomGrayGradient.Angle = 270;
-            this._bottomGrayGradient.AngleScales = false;
-            this._bottomGrayGradient.Controls.Add(this.FitToWindowButton);
-            this._bottomGrayGradient.Controls.Add(this.RightButton);
-            this._bottomGrayGradient.Controls.Add(this.GridSwitch);
-            this._bottomGrayGradient.Controls.Add(this.ActualSizeButton);
-            this._bottomGrayGradient.Controls.Add(this.LeftButton);
-            this._bottomGrayGradient.Location = new System.Drawing.Point(0, 365);
-            this._bottomGrayGradient.Name = "_bottomGrayGradient";
-            this._bottomGrayGradient.Size = new System.Drawing.Size(800, 92);
-            this._bottomGrayGradient.TabIndex = 5;
+            this.GrayGradientPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.GrayGradientPanel.Angle = 270;
+            this.GrayGradientPanel.AngleScales = false;
+            this.GrayGradientPanel.Controls.Add(this.FitToWindowButton);
+            this.GrayGradientPanel.Controls.Add(this.RightButton);
+            this.GrayGradientPanel.Controls.Add(this.GridSwitch);
+            this.GrayGradientPanel.Controls.Add(this.ActualSizeButton);
+            this.GrayGradientPanel.Controls.Add(this.LeftButton);
+            this.GrayGradientPanel.Location = new System.Drawing.Point(0, 365);
+            this.GrayGradientPanel.Name = "GrayGradientPanel";
+            this.GrayGradientPanel.Size = new System.Drawing.Size(800, 92);
+            this.GrayGradientPanel.TabIndex = 5;
             // 
             // ActualSizeButton
             // 
@@ -185,14 +185,15 @@ namespace OpenPhotoViewer.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ImageBox);
-            this.Controls.Add(this._bottomGrayGradient);
+            this.Controls.Add(this.GrayGradientPanel);
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(424, 370);
             this.Name = "MainForm";
             this.Text = "Open Photo Viewer";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
-            this._bottomGrayGradient.ResumeLayout(false);
+            this.Move += new System.EventHandler(this.MainForm_Move);
+            this.GrayGradientPanel.ResumeLayout(false);
             this.ResumeLayout(false);
         }
 
@@ -207,7 +208,7 @@ namespace OpenPhotoViewer.UI
         private OpenPhotoViewer.UI.Controls.ImageBox.ImageBox ImageBox;
         private OpenPhotoViewer.UI.Controls.CustomButton LeftButton;
         private OpenPhotoViewer.UI.Controls.CustomButton RightButton;
-        private OpenPhotoViewer.UI.Controls.GradientPanel.GrayGradientPanel _bottomGrayGradient;
+        private OpenPhotoViewer.UI.Controls.GrayGradientPanel GrayGradientPanel;
     }
 }
 
